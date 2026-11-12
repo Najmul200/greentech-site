@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html { scroll-behavior: smooth; scroll-padding-top: 5rem; }
+body { margin: 0; font-family: system-ui, -apple-system, 'Segoe UI', Arial, sans-serif; }
+
+.buy-now-float {
+  animation: buy-now-float 2.2s ease-in-out infinite;
+}
+
+.buy-now-arrow {
+  transition: transform 200ms ease;
+}
+
+.buy-now-float:hover .buy-now-arrow {
+  transform: translateX(3px);
+}
+
+@keyframes buy-now-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .buy-now-float {
+    animation: none;
+  }
+}
