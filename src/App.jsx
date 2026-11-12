@@ -8,6 +8,7 @@ import ProductDetails from './components/ProductDetails';
 import About from './components/About';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import SiteIntro from './components/SiteIntro';
 import { CATEGORIES } from './data/siteData';
 
 export default function App() {
@@ -21,6 +22,7 @@ export default function App() {
   return (
     <>
       <Seo />
+      <SiteIntro />
       <Header />
       <main>
         {path === '/' && (
