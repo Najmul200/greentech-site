@@ -1,6 +1,13 @@
 import { useState } from 'react';
 import { PRODUCTS, SITE } from '../data/siteData';
 
+const PRODUCT_IMAGE_VIEWS = [
+  { key: 'full', label: 'Full product image', position: '50% 50%', zoom: 1, fit: 'contain' },
+  { key: 'charger', label: 'Charger close-up', position: '50% 32%', zoom: 1.5, fit: 'cover' },
+  { key: 'label', label: 'Product label close-up', position: '50% 70%', zoom: 1.65, fit: 'cover' },
+  { key: 'cable', label: 'Cable and side close-up', position: '82% 55%', zoom: 1.6, fit: 'cover' },
+];
+
 const CHARGER_MODELS = [
   { model: '48V3A', power: '200W', size: '168mm*78mm*57mm', voltage: 'DC 48 - 58.8V', current: 'DC 3.0±0.2A' },
   { model: '48V4A', power: '280W', size: '170mm*90mm*67mm', voltage: 'DC 48V-58.8V', current: 'DC 4.0±0.2A' },
@@ -29,12 +36,7 @@ export default function ProductDetails({ productId }) {
     );
   }
 
-  const gallery = [
-    product,
-    ...PRODUCTS.filter((item) => item.cat === product.cat && item.img !== product.img)
-      .filter((item, index, items) => items.findIndex((entry) => entry.img === item.img) === index),
-  ];
-  const activeImage = gallery[selectedImage] || product;
+  const activeView = PRODUCT_IMAGE_VIEWS[selectedImage] || PRODUCT_IMAGE_VIEWS[0];
   const whatsappPhone = SITE.phone.replace(/\D/g, '');
   const whatsappMessage = `Hello, I am interested in ${product.name} (${product.cat}). Please share the price and more details.`;
   const whatsappUrl = `https://wa.me/${whatsappPhone}?text=${encodeURIComponent(whatsappMessage)}`;
@@ -47,29 +49,37 @@ export default function ProductDetails({ productId }) {
         </a>
 
         <div className="mx-auto mt-5 max-w-4xl sm:mt-6">
-          <div className="grid min-w-0 gap-3 sm:grid-cols-[minmax(0,1fr)_88px] sm:gap-4">
+          <div className="grid min-w-0 gap-3 md:grid-cols-[minmax(0,1fr)_88px] md:gap-4">
             <div className="flex aspect-[4/3] min-w-0 items-center justify-center overflow-hidden rounded-xl bg-slate-50 p-3 sm:p-8">
-              <img src={activeImage.img} alt={activeImage.name} className="max-h-full w-full object-contain" />
+              <img
+                src={product.img}
+                alt={`${product.name} - ${activeView.label}`}
+                className="h-full w-full transition-transform duration-300 ease-out"
+                style={{ objectFit: activeView.fit, objectPosition: activeView.position, transform: `scale(${activeView.zoom})` }}
+              />
             </div>
 
-            {gallery.length > 1 && (
-              <div className="flex max-w-full gap-2 overflow-x-auto pb-1 sm:max-h-[32rem] sm:flex-col sm:gap-3 sm:overflow-x-hidden sm:overflow-y-auto sm:pb-0">
-                {gallery.map((image, index) => (
-                  <button
-                    key={image.img}
-                    type="button"
-                    onClick={() => setSelectedImage(index)}
-                    aria-label={`Show ${image.name}`}
-                    aria-pressed={selectedImage === index}
-                    className={`flex h-16 w-16 shrink-0 items-center justify-center overflow-hidden rounded-lg border-2 bg-white p-1.5 transition sm:h-20 sm:w-20 sm:p-2 ${
-                      selectedImage === index ? 'border-blue-600 shadow-md' : 'border-slate-200 hover:border-blue-300'
-                    }`}
-                  >
-                    <img src={image.img} alt={image.name} className="h-full w-full object-contain" />
-                  </button>
-                ))}
-              </div>
-            )}
+            <div className="flex max-w-full gap-2 overflow-x-auto pb-1 md:max-h-[32rem] md:flex-col md:gap-3 md:overflow-x-hidden md:overflow-y-auto md:pb-0">
+              {PRODUCT_IMAGE_VIEWS.map((view, index) => (
+                <button
+                  key={view.key}
+                  type="button"
+                  onClick={() => setSelectedImage(index)}
+                  aria-label={`Show ${product.name}: ${view.label}`}
+                  aria-pressed={selectedImage === index}
+                  className={`flex h-16 w-16 shrink-0 items-center justify-center overflow-hidden rounded-lg border-2 bg-white p-1.5 transition md:h-20 md:w-20 md:p-2 ${
+                    selectedImage === index ? 'border-blue-600 shadow-md' : 'border-slate-200 hover:border-blue-300'
+                  }`}
+                >
+                  <img
+                    src={product.img}
+                    alt=""
+                    className="h-full w-full"
+                    style={{ objectFit: view.fit, objectPosition: view.position, transform: `scale(${view.zoom})` }}
+                  />
+                </button>
+              ))}
+            </div>
           </div>
 
           <div className="mt-5 min-w-0 border-t border-slate-200 pt-5 sm:mt-6 sm:pt-6">

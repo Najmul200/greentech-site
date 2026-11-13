@@ -8,9 +8,9 @@ export default function ProductCenter({ selectedCategory, onCategoryChange, show
     : `${window.location.pathname}${window.location.search}${window.location.hash}`;
 
   return (
-    <section id="products" aria-labelledby="products-title" className="bg-gray-50 py-10 sm:py-14">
+    <section id="products" aria-labelledby="products-title" className="bg-gray-50 pb-10 pt-2 sm:pb-14 sm:pt-4">
       <div className="mx-auto max-w-7xl px-4">
-        <h2 id="products-title" className="text-center text-2xl font-bold text-gray-800 sm:text-3xl">PRODUCT CENTER</h2>
+        <h2 id="products-title" className="text-center text-2xl font-bold text-[#111111] sm:text-3xl">PRODUCT CENTER</h2>
         <div className="mx-auto mt-2 h-1 w-16 bg-blue-700" />
         {selectedCategory !== 'All' && (
           <p className="mt-3 text-center">
@@ -39,7 +39,7 @@ export default function ProductCenter({ selectedCategory, onCategoryChange, show
                   aria-label={`View details for ${p.name}`}
                   className="block h-full w-full text-left focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-blue-600"
                 >
-                  <div className={`relative overflow-hidden bg-white ${showAllProductsLink ? 'aspect-[2/1] p-1' : 'aspect-square p-3'}`}>
+                  <div className={`relative overflow-hidden bg-white ${showAllProductsLink ? 'aspect-square p-2 sm:p-3 lg:aspect-[2/1] lg:p-1' : 'aspect-square p-3'}`}>
                     <img
                       src={p.img}
                       alt={`${p.name} by A GreenTech Solution`}

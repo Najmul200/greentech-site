@@ -3,8 +3,8 @@ import { ABOUT } from '../data/siteData';
 export default function About() {
   return (
     <section id="about" aria-labelledby="about-title" className="py-10 sm:py-14">
-      <div className="mx-auto grid max-w-7xl items-center gap-6 px-4 sm:px-6 md:grid-cols-2 md:gap-8 lg:px-8">
-        <img src="/images/slide-3-testing-lab.png" alt="Factory aging test cabinet loaded with chargers" loading="lazy" className="h-auto w-full rounded shadow" />
+      <div className="mx-auto grid max-w-7xl items-center gap-6 px-4 sm:px-6 lg:grid-cols-[1.2fr_0.8fr] lg:gap-8 lg:px-8">
+        <img src="/images/Gemini_Generated_Image_sizvaasizvaasizv.jfif" alt="Production room with battery chargers and factory testing equipment" loading="lazy" className="h-[240px] w-full rounded shadow object-cover object-center min-[420px]:h-[280px] sm:h-[340px] lg:h-[500px] xl:h-[520px]" />
         <div>
           <h2 id="about-title" className="text-2xl font-bold text-gray-800 sm:text-3xl">About Us</h2>
           <h3 className="mt-1 text-xl font-semibold text-blue-700">{ABOUT.heading}</h3>

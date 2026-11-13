@@ -6,10 +6,13 @@ export default function Header() {
   const active = window.location.pathname.replace(/\/+$/, '') || '/';
 
   return (
-    <header className="sticky top-0 z-50 border-b border-slate-300 border-t-4 border-t-green-600 bg-gradient-to-r from-slate-200 via-slate-100 to-slate-200 shadow-[0_8px_25px_rgba(15,23,42,0.16)] backdrop-blur">
+    <header className="sticky top-0 z-50 border-b border-[#e5e4dd] border-t-4 border-t-[#f8f8f3] bg-[#f8f8f3] shadow-[0_8px_25px_rgba(15,23,42,0.16)] backdrop-blur">
       <div className="mx-auto flex min-h-16 max-w-7xl items-center justify-between gap-3 px-4 py-1 sm:px-6 lg:px-8">
-        <a href="/" aria-label={`${SITE.name} home`} className="group min-w-0 shrink-0">
-          <img src="/images/logo.png" alt={`${SITE.name} logo`} className="w-36 max-w-[42vw] object-contain transition-transform duration-300 ease-out group-hover:scale-[1.02] sm:w-44 sm:max-w-none" />
+        <a href="/" aria-label={`${SITE.name} home`} className="group min-w-0 shrink-0 rounded-lg outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2">
+          <span className="nav-logo-shell">
+            <img src="/images/logo.png" alt={`${SITE.name} logo`} className="block w-36 max-w-[42vw] object-contain sm:w-44 sm:max-w-none" />
+            <span className="nav-logo-shine" aria-hidden="true" />
+          </span>
         </a>
 
         <nav aria-label="Main navigation" className="hidden lg:block">
@@ -37,12 +40,12 @@ export default function Header() {
           </ul>
         </nav>
 
-        <div className="hidden rounded-xl bg-green-50 px-3 py-1.5 text-right xl:block">
+        <div className="hidden rounded-xl bg-white/80 px-3 py-1.5 text-right xl:block">
           <p className="text-[10px] font-bold tracking-widest text-green-700">CONTACT HOTLINE</p>
           <a href={`tel:${SITE.phone}`} className="text-sm font-bold text-slate-800 transition-colors hover:text-green-700">{SITE.phone}</a>
         </div>
 
-        <button className="rounded-lg border border-green-100 bg-green-50 p-2.5 transition-colors hover:bg-green-100 lg:hidden" aria-label="Toggle menu" aria-expanded={open} onClick={() => setOpen(!open)}>
+        <button className="rounded-lg border border-[#e5e4dd] bg-white p-2.5 transition-colors hover:bg-white/70 lg:hidden" aria-label="Toggle menu" aria-expanded={open} onClick={() => setOpen(!open)}>
           <span className="block h-0.5 w-6 bg-slate-800" />
           <span className="mt-1.5 block h-0.5 w-6 bg-slate-800" />
           <span className="mt-1.5 block h-0.5 w-6 bg-slate-800" />
@@ -50,7 +53,7 @@ export default function Header() {
       </div>
 
       {open && (
-        <nav aria-label="Mobile navigation" className="border-t border-green-100 bg-white lg:hidden">
+        <nav aria-label="Mobile navigation" className="border-t border-[#e5e4dd] bg-[#f8f8f3] lg:hidden">
           <ul className="mx-auto max-w-7xl px-4 py-2 sm:px-6">
             {NAV.map((n) => {
               return (

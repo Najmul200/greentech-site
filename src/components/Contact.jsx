@@ -7,7 +7,7 @@ export default function Contact() {
   const field = 'w-full rounded border px-3 py-2 text-sm focus:border-blue-700 focus:outline-none';
   return (
     <section id="contact" aria-labelledby="contact-title" className="bg-gray-50 py-10 sm:py-14">
-      <div className="mx-auto grid max-w-7xl gap-6 px-4 sm:px-6 md:grid-cols-2 md:gap-8 lg:px-8">
+      <div className="mx-auto grid max-w-7xl gap-6 px-4 sm:px-6 lg:grid-cols-2 lg:gap-8 lg:px-8">
         <div>
           <h2 id="contact-title" className="text-2xl font-bold text-gray-800 sm:text-3xl">Contact Us</h2>
           <div className="mt-2 h-1 w-16 bg-blue-700" />

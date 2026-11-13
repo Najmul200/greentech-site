@@ -17,11 +17,56 @@ export const NAV = [
 ];
 
 export const SLIDES = [
-  { src: '/images/slide-2-charger-box.png', alt: 'Blue MCU controlled fast charger with retail box' },
-  { src: '/images/slide-3-testing-lab.png', alt: 'Chargers being aging-tested in the factory test cabinet' },
-  { src: '/images/slide-4-fan-side.png', alt: 'Fan-cooled blue battery charger, side view' },
-  { src: '/images/slide-5-vent-side.png', alt: 'Ventilated blue battery charger with power cable' },
-  { src: '/images/slide-6-front.png', alt: 'Blue battery charger front view with EU plug' },
+  {
+    src: '/images/Gemini_Generated_Image_dbh6sadbh6sadbh6.jfif',
+    alt: 'Blue GreenTech battery charger displayed in a factory',
+    eyebrow: 'A GREENTECH SOLUTION',
+    title: 'Power you can rely on.',
+    description: 'Smart battery charging, built for dependable everyday performance.',
+    action: 'Explore chargers',
+    href: '/products?category=Chargers',
+    detailsHref: '/products/4?from=%2F',
+  },
+  {
+    src: '/images/Gemini_Generated_Image_dbh6sadbh6sadbh6 (2).jfif',
+    alt: 'Blue fast charger with retail packaging',
+    eyebrow: 'SMART CHARGING',
+    title: 'Reliable power. Longer life.',
+    description: 'Discover chargers with intelligent control and overcharge protection.',
+    action: 'Shop dry battery chargers',
+    href: '/products?category=Dry%20Battery%20Chargers',
+    detailsHref: '/products/1?from=%2F',
+  },
+  {
+    src: '/images/Gemini_Generated_Image_dbh6sadbh6sadbh6 (3).jfif',
+    alt: 'Fast lithium battery charger',
+    eyebrow: 'MADE FOR LITHIUM',
+    title: 'The right charge for every journey.',
+    description: 'Explore charging solutions for lithium battery applications.',
+    action: 'View lithium chargers',
+    href: '/products?category=Lithium%20Chargers',
+    detailsHref: '/products/8?from=%2F',
+  },
+  {
+    src: '/images/Gemini_Generated_Image_o7metvo7metvo7me.jfif',
+    alt: 'Battery chargers on a production testing line',
+    eyebrow: 'QUALITY IN EVERY DETAIL',
+    title: 'Tested for dependable performance.',
+    description: 'Careful production and testing help us deliver reliable power solutions.',
+    action: 'About our company',
+    href: '/about',
+    detailsHref: '/about',
+  },
+  {
+    src: '/images/Gemini_Generated_Image_sizvaasizvaasizv.jfif',
+    alt: 'Chargers being aging-tested in the factory',
+    eyebrow: 'BUILT WITH CARE',
+    title: 'Quality you can count on.',
+    description: 'Learn more about the people and process behind our products.',
+    action: 'Meet GreenTech',
+    href: '/about',
+    detailsHref: '/about',
+  },
 ];
 
 export const ABOUT = {
@@ -37,18 +82,23 @@ export const ABOUT = {
 export const CATEGORIES = ['All', 'Dry Battery Chargers', 'Chargers', 'Lithium Chargers', '12V Chargers', 'Digital Display Chargers', 'Controllers', 'Converters'];
 
 // Product names follow the reference site's Product Center. Replace img/desc with your own.
-const IMG = { box: '/images/slide-2-charger-box.png', fan: '/images/slide-4-fan-side.png', vent: '/images/slide-5-vent-side.png', front: '/images/slide-6-front.png' };
+const IMG = {
+  box: '/images/Gemini_Generated_Image_dbh6sadbh6sadbh6 (2).jfif',
+  fan: '/images/Gemini_Generated_Image_dbh6sadbh6sadbh6 (1).jfif',
+  vent: '/images/Gemini_Generated_Image_dbh6sadbh6sadbh6.jfif',
+  lithium: '/images/Gemini_Generated_Image_dbh6sadbh6sadbh6 (3).jfif',
+};
 export const PRODUCTS = [
   { id: 1, name: 'Fast Charger 48V 10A', cat: 'Dry Battery Chargers', img: IMG.box, desc: 'MCU controlled smart charging with overcharge protection for dry batteries.' },
-  { id: 2, name: 'Fast Charger 60V 10A', cat: 'Dry Battery Chargers', img: IMG.front, desc: 'High-current charger for 60V battery packs, long life and safety.' },
+  { id: 2, name: 'Fast Charger 60V 10A', cat: 'Dry Battery Chargers', img: IMG.box, desc: 'High-current charger for 60V battery packs, long life and safety.' },
   { id: 3, name: 'One Lamp Charger', cat: 'Chargers', img: IMG.fan, desc: 'Single indicator lamp lead acid battery charger.' },
   { id: 4, name: 'Seven Lamp Charger', cat: 'Chargers', img: IMG.vent, desc: 'Seven-lamp level indicator charger.' },
-  { id: 5, name: 'Twelve Lamp Charger', cat: 'Chargers', img: IMG.front, desc: 'Twelve-lamp level indicator charger.' },
+  { id: 5, name: 'Twelve Lamp Charger', cat: 'Chargers', img: IMG.box, desc: 'Twelve-lamp level indicator charger.' },
   { id: 6, name: 'Digital Display Charger', cat: 'Digital Display Chargers', img: IMG.fan, desc: 'Digital display shows charging voltage and status.' },
   { id: 7, name: 'Big Screen Digital Display Charger', cat: 'Digital Display Chargers', img: IMG.vent, desc: 'Large digital screen for clear charging information.' },
-  { id: 8, name: 'Lithium Charger NO.1', cat: 'Lithium Chargers', img: IMG.box, desc: 'Lithium battery charger for lithium battery packs.' },
-  { id: 9, name: 'Lithium Charger NO.2', cat: 'Lithium Chargers', img: IMG.front, desc: 'Lithium battery charger, second model.' },
+  { id: 8, name: 'Lithium Charger NO.1', cat: 'Lithium Chargers', img: IMG.lithium, desc: 'Lithium battery charger for lithium battery packs.' },
+  { id: 9, name: 'Lithium Charger NO.2', cat: 'Lithium Chargers', img: IMG.lithium, desc: 'Lithium battery charger, second model.' },
   { id: 10, name: '12V Chargers', cat: '12V Chargers', img: IMG.fan, desc: '12V lead acid battery chargers.' },
-  { id: 11, name: 'White Controller', cat: 'Controllers', img: IMG.vent, desc: 'Controller for electric vehicles.' },
-  { id: 12, name: 'Converter 10A-20A', cat: 'Converters', img: IMG.front, desc: 'DC converter, 10A to 20A models.' },
+  { id: 11, name: 'White Controller', cat: 'Controllers', img: IMG.fan, desc: 'Controller for electric vehicles.' },
+  { id: 12, name: 'Converter 10A-20A', cat: 'Converters', img: IMG.box, desc: 'DC converter, 10A to 20A models.' },
 ];

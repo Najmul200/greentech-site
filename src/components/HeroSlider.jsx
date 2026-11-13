@@ -3,28 +3,63 @@ import { SLIDES } from '../data/siteData';
 
 export default function HeroSlider() {
   const [i, setI] = useState(0);
+
   useEffect(() => {
-    const t = setInterval(() => setI((p) => (p + 1) % SLIDES.length), 4500);
-    return () => clearInterval(t);
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return undefined;
+    const timer = window.setInterval(() => setI((current) => (current + 1) % SLIDES.length), 2200);
+    return () => window.clearInterval(timer);
   }, []);
-  const go = (d) => setI((p) => (p + d + SLIDES.length) % SLIDES.length);
+
+  const go = (direction) => setI((current) => (current + direction + SLIDES.length) % SLIDES.length);
   if (!SLIDES.length) return null;
 
   return (
-    <section id="home" aria-label="Featured products" className="relative bg-slate-900">
-      <div className="mx-auto max-w-6xl px-3 sm:px-5">
-        <div className="relative aspect-[4/3] max-h-[520px] min-h-[260px] w-full overflow-hidden sm:aspect-[16/8] sm:min-h-0">
-          {SLIDES.map((s, n) => (
-            <img key={s.src} src={s.src} alt={s.alt} loading={n === 0 ? 'eager' : 'lazy'}
-              className={`absolute inset-0 h-full w-full object-contain transition-opacity duration-700 ${n === i ? 'opacity-100' : 'opacity-0'}`} />
-          ))}
-          <button onClick={() => go(-1)} aria-label="Previous slide" className="absolute left-2 top-1/2 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full bg-black/40 text-white transition hover:bg-black/70 sm:h-11 sm:w-11 sm:text-lg">‹</button>
-          <button onClick={() => go(1)} aria-label="Next slide" className="absolute right-2 top-1/2 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full bg-black/40 text-white transition hover:bg-black/70 sm:h-11 sm:w-11 sm:text-lg">›</button>
-        </div>
-        <div className="flex justify-center gap-2 py-2">
-          {SLIDES.map((_, n) => (
-            <button key={n} onClick={() => setI(n)} aria-label={`Go to slide ${n + 1}`}
-              className={`h-2.5 w-2.5 rounded-full ${n === i ? 'bg-green-500' : 'bg-gray-500'}`} />
+    <section
+      id="home"
+      aria-label="Featured products"
+      className="relative w-full overflow-hidden bg-slate-950"
+    >
+      <div className="relative h-[280px] w-full bg-slate-100 sm:h-[360px] lg:h-[450px] xl:h-[480px]">
+        {SLIDES.map((slide, index) => (
+          <img
+            key={slide.src}
+            src={slide.src}
+            alt={slide.alt}
+            loading={index === 0 ? 'eager' : 'lazy'}
+            className={`absolute inset-0 h-full w-full object-cover object-[center_55%] transition-opacity duration-700 ease-in-out ${index === i ? 'opacity-100' : 'opacity-0'}`}
+            aria-hidden={index !== i}
+          />
+        ))}
+
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-slate-950/55 via-transparent to-slate-950/10" aria-hidden="true" />
+
+        <button
+          type="button"
+          onClick={() => go(-1)}
+          aria-label="Previous slide"
+          className="absolute left-3 top-1/2 z-20 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-white/60 bg-slate-950/40 text-xl text-white shadow-lg backdrop-blur-sm transition hover:scale-105 hover:bg-white hover:text-slate-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white sm:left-6 sm:h-12 sm:w-12 lg:left-10"
+        >
+          &larr;
+        </button>
+        <button
+          type="button"
+          onClick={() => go(1)}
+          aria-label="Next slide"
+          className="absolute right-3 top-1/2 z-20 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-white/60 bg-slate-950/40 text-xl text-white shadow-lg backdrop-blur-sm transition hover:scale-105 hover:bg-white hover:text-slate-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white sm:right-6 sm:h-12 sm:w-12 lg:right-10"
+        >
+          &rarr;
+        </button>
+
+        <div className="absolute bottom-0 left-0 right-0 z-20 flex items-center justify-center gap-2 px-4 pb-4 pt-10 sm:pb-6">
+          {SLIDES.map((slide, index) => (
+            <button
+              key={slide.src}
+              type="button"
+              onClick={() => setI(index)}
+              aria-label={`Go to slide ${index + 1}`}
+              aria-current={index === i ? 'true' : undefined}
+              className={`h-1.5 rounded-full transition-all duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white ${index === i ? 'w-8 bg-white' : 'w-1.5 bg-white/55 hover:bg-white'}`}
+            />
           ))}
         </div>
       </div>

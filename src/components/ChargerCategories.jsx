@@ -1,20 +1,20 @@
 const CHARGER_CATEGORIES = [
   {
-    name: 'Battery',
+    name: 'Dry Battery Charger',
     category: 'Dry Battery Chargers',
-    image: '/images/slide-2-charger-box.png',
+    image: '/images/Gemini_Generated_Image_dbh6sadbh6sadbh6 (2).jfif',
     alt: 'Battery charger product',
   },
   {
-    name: 'Motor Controller',
-    category: 'Controllers',
-    image: '/images/slide-5-vent-side.png',
-    alt: 'Motor control product category',
+    name: 'Fast Battery Charger',
+    category: 'Chargers',
+    image: '/images/Gemini_Generated_Image_dbh6sadbh6sadbh6.jfif',
+    alt: 'Blue fast battery charger',
   },
   {
-    name: 'Lithium Accessories',
+    name: 'Lithium Battery Charger',
     category: 'Lithium Chargers',
-    image: '/images/slide-6-front.png',
+    image: '/images/Gemini_Generated_Image_dbh6sadbh6sadbh6 (3).jfif',
     alt: 'Lithium charging product category',
   },
 ];
@@ -24,9 +24,9 @@ export default function ChargerCategories() {
     <section
       id="chargers"
       aria-labelledby="chargers-title"
-      className="bg-[#145b91] px-4 py-9 sm:px-6 sm:py-14"
+      className="charger-section-bg px-4 py-9 sm:px-6 sm:py-14"
     >
-      <div className="mx-auto max-w-5xl">
+      <div className="mx-auto max-w-3xl">
         <h2
           id="chargers-title"
           className="text-center text-xl font-extrabold tracking-wide text-white sm:text-3xl"
@@ -39,19 +39,19 @@ export default function ChargerCategories() {
             <li key={item.name}>
               <a
                 href={`/products?category=${encodeURIComponent(item.category)}`}
-                className="group block overflow-hidden rounded-sm bg-white shadow-md transition duration-300 hover:-translate-y-1 hover:shadow-xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
+                className="group block overflow-hidden rounded-md border border-white bg-white shadow-[0_12px_30px_rgba(4,25,52,0.34)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_20px_40px_rgba(4,25,52,0.48)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
               >
-                <div className="aspect-[4/3] overflow-hidden bg-white">
+                <div className="aspect-[16/9] overflow-hidden bg-white p-1 sm:p-2">
                   <img
                     src={item.image}
                     alt={item.alt}
                     loading="lazy"
-                    className="h-full w-full object-contain p-2 transition-transform duration-300 group-hover:scale-105"
+                    className="h-full w-full object-contain transition-transform duration-300 ease-out group-hover:scale-[1.04]"
                   />
                 </div>
-                <h3 className="border-t border-slate-100 px-3 py-3 text-center text-sm font-medium text-slate-700 transition-colors group-hover:text-blue-700 sm:text-base">
-                  {item.name}
-                </h3>
+                <div className="border-t border-slate-100 bg-white px-3 py-2 text-center sm:px-4 sm:py-2.5">
+                  <h3 className="text-[10px] font-semibold leading-tight text-slate-700 transition-colors group-hover:text-blue-700 sm:text-xs">{item.name}</h3>
+                </div>
               </a>
             </li>
           ))}
